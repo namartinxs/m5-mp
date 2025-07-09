@@ -12,7 +12,7 @@ interface ZoonoseProps {
 export default function ZoonoseChikungunyaPage() {
   const [dados, setDados] = useState<ZoonoseProps | null>(null);
   const [erro, setErro] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -24,19 +24,16 @@ export default function ZoonoseChikungunyaPage() {
       })
       .then((data: ZoonoseProps) => {
         setDados(data);
-        setLoading(false);
+
       })
       .catch((err) => {
         setErro(err instanceof Error ? err.message : "Erro desconhecido");
-        setLoading(false);
+        setLoading(true);
       });
   }, []);
 
-  if (loading) return <p className="p-6 text-orange-600">Carregando...</p>;
-  if (erro) return <p className="p-6 text-red-600">{erro}</p>;
-  if (!dados) return null;
-
-  if (loading) return <p className="p-6 text-orange-600">Carregando...</p>;
+ 
+ if (loading) return <p className="p-6 text-orange-600">Carregando...</p>;
   if (erro) return <p className="p-6 text-red-600">{erro}</p>;
   if (!dados) return null;
 
