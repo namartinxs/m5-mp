@@ -45,7 +45,7 @@ export default function TratamentoChikungunyaSection() {
       </div>
       <div className="flex flex-col gap-y-4">
         <div className="flex-1 bg-blue p-6 rounded-xl shadow-md border">
-          <ul className="space-y-4">
+          <ul className="bg-orange-100  border-orange-500 space-y-4">
             {dados.tratamento_Chikungunya.fase_aguda.map((item, idx) => (
               <li key={idx}>{item}</li>
             ))}
@@ -53,9 +53,9 @@ export default function TratamentoChikungunyaSection() {
         </div>
 
         <div className="flex-1 bg-blue p-6 rounded-xl shadow-md border">
-          <ul>
+          <ul className="bg-orange-100  border-orange-500">
             {dados.tratamento_Chikungunya.fase_subaguda.map((item, idx) => (
-              <li key={idx}>{item}</li>
+              <li  key={idx}>{item}</li>
             ))}
           </ul>
         </div>
