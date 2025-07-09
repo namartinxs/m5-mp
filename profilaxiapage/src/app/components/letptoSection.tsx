@@ -1,15 +1,14 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import { getLeptospirose } from "@/utils/api";
 
-interface LeptospiroseResponse {
-  
+interface LeptospiroseProps {
   MEDIDAS_DE_PREVENÇÃO_AMBIENTAS: string[];
   MEDIDAS_DE_PREVENÇÃO_PESSOAIS: string[];
 }
 
 export default function LeptospiroseSection() {
-  const [dados, setDados] = useState<LeptospiroseResponse | null>(null);
+  const [dados, setDados] = useState<LeptospiroseProps | null>(null);
   const [erro, setErro] = useState("");
 
   useEffect(() => {
@@ -26,19 +25,21 @@ export default function LeptospiroseSection() {
 
   return (
     <section className="max-w-5xl mx-auto p-6 bg-white rounded-md shadow-lg">
-     
-
-      <h2 className="font-bold text-2xl mb-6 text-green-800">Prevenção - Leptospirose</h2>
+      <h2 className="font-bold text-2xl mb-6 text-green-800">
+        Prevenção - Leptospirose
+      </h2>
 
       <div className="flex flex-col gap-y-4">
-        
         <div className="flex-1 bg-blue p-6 rounded-xl shadow-md border">
           <h3 className="text-lg font-semibold mb-4 text-green-700 flex items-center gap-2">
             Prevenções Pessoais
           </h3>
           <ul className="space-y-3">
             {dados.MEDIDAS_DE_PREVENÇÃO_PESSOAIS.map((item, idx) => (
-              <li key={idx} className="bg-green-50 p-4 rounded-md border text-green-800">
+              <li
+                key={idx}
+                className="bg-green-50 p-4 rounded-md border text-green-800"
+              >
                 {item}
               </li>
             ))}
@@ -51,7 +52,10 @@ export default function LeptospiroseSection() {
           </h3>
           <ul className="space-y-3">
             {dados.MEDIDAS_DE_PREVENÇÃO_AMBIENTAS.map((item, idx) => (
-              <li key={idx} className="bg-green-50 p-4 rounded-md border text-green-800">
+              <li
+                key={idx}
+                className="bg-green-50 p-4 rounded-md border text-green-800"
+              >
                 {item}
               </li>
             ))}

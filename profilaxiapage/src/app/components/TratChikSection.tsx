@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-interface TratamentoResponse {
+interface TratamentoProps {
   aviso: string;
   tratamento_Chikungunya: {
     importante: string[];
@@ -11,7 +11,7 @@ interface TratamentoResponse {
 }
 
 export default function TratamentoChikungunyaSection() {
-  const [dados, setDados] = useState<TratamentoResponse | null>(null);
+  const [dados, setDados] = useState<TratamentoProps | null>(null);
   const [erro, setErro] = useState("");
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function TratamentoChikungunyaSection() {
         if (!res.ok) throw new Error("Erro ao buscar dados");
         return res.json();
       })
-      .then((data: TratamentoResponse) => {
+      .then((data: TratamentoProps) => {
         setDados(data);
       })
       .catch((err) => {

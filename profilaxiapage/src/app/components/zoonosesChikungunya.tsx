@@ -2,9 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-
-interface ZoonoseResponse {
-
+interface ZoonoseProps {
   nome: string;
   sintomas: string;
   transmissor: string;
@@ -12,13 +10,11 @@ interface ZoonoseResponse {
 }
 
 export default function ZoonoseChikungunyaPage() {
-  const [dados, setDados] = useState<ZoonoseResponse | null>(null);
+  const [dados, setDados] = useState<ZoonoseProps | null>(null);
   const [erro, setErro] = useState("");
   const [loading, setLoading] = useState(true);
 
-  
-
-    useEffect(() => {
+  useEffect(() => {
     fetch(
       "https://m4-mp-profilaxiaapi-u11n.onrender.com/zoonoses/listagemZoonose/Chikungunya"
     )
@@ -26,7 +22,7 @@ export default function ZoonoseChikungunyaPage() {
         if (!res.ok) throw new Error("Erro ao buscar dados");
         return res.json();
       })
-      .then((data: ZoonoseResponse) => {
+      .then((data: ZoonoseProps) => {
         setDados(data);
         setLoading(false);
       })
@@ -46,27 +42,24 @@ export default function ZoonoseChikungunyaPage() {
 
   return (
     <main className="max-w-4xl mx-auto px-6 py-10">
-      
-      
-
-      
       <h1 className="text-3xl font-bold text-orange-700 mb-6">{dados.nome}</h1>
-
 
       <section className="flex-1 bg-blue p-6 rounded-xl shadow-md border mb-6">
         <h2 className="text-xl font-semibold text-orange-600 mb-2">Sintomas</h2>
         <p className="text-gray-800">{dados.sintomas}</p>
       </section>
 
- 
       <section className="flex-1 bg-blue p-6 rounded-xl shadow-md border mb-6">
-        <h2 className="text-xl font-semibold text-orange-600 mb-2">Transmissor</h2>
+        <h2 className="text-xl font-semibold text-orange-600 mb-2">
+          Transmissor
+        </h2>
         <p className="text-gray-800">{dados.transmissor}</p>
       </section>
 
-   
       <section className="flex-1 bg-blue p-6 rounded-xl shadow-md border ">
-        <h2 className="text-xl font-semibold text-orange-600 mb-2">Período de Incubação</h2>
+        <h2 className="text-xl font-semibold text-orange-600 mb-2">
+          Período de Incubação
+        </h2>
         <p className="text-gray-800">{dados.periodo_de_incubacao}</p>
       </section>
     </main>
