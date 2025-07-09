@@ -7,6 +7,8 @@ interface TratamentoProps {
     importante: string[];
     fase_aguda: string[];
     fase_subaguda: string[];
+    atencao_aguda: string[];
+    atencao_subaguda: string[];
   };
 }
 
@@ -44,20 +46,32 @@ export default function TratamentoChikungunyaSection() {
         <strong>Aviso:</strong> {dados.tratamento_Chikungunya.importante}
       </div>
       <div className="flex flex-col gap-y-4">
-        <div className="flex-1 bg-blue p-6 rounded-xl shadow-md border">
-          <ul className="bg-orange-100  border-orange-500 space-y-4">
+        <div className="flex-1 bg-blue p-6 rounded-xl shadow-md border space-y-2">
+          <h3 className="text-lg font-semibold mb-4 text-orange-500 flex items-center gap-2">
+            Fase aguda (até 10 dias)
+          </h3>
+          <ul className="space-y-4">
             {dados.tratamento_Chikungunya.fase_aguda.map((item, idx) => (
-              <li key={idx}>{item}</li>
+              <li className="bg-orange-100 p-4 rounded-md border border-orange-500"  key={idx}>{item}</li>
             ))}
           </ul>
+          <div className="border-l-4 border-orange-500 text-orange-800 p-4 mb-6 rounded">
+            <strong>Atenção:</strong> {dados.tratamento_Chikungunya.atencao_aguda}
+          </div>
         </div>
 
-        <div className="flex-1 bg-blue p-6 rounded-xl shadow-md border">
-          <ul className="bg-orange-100  border-orange-500">
+        <div className="flex-1 bg-blue p-6 rounded-xl shadow-md border space-y-2">
+          <h3 className="text-lg font-semibold mb-4 text-orange-500 flex items-center gap-2">
+            Fase subaguda e crônica (após 10 dias até meses)
+          </h3>
+          <ul className="space-y-4">
             {dados.tratamento_Chikungunya.fase_subaguda.map((item, idx) => (
-              <li  key={idx}>{item}</li>
+              <li className="bg-orange-100 p-4 rounded-md border border-orange-500" key={idx}>{item}</li>
             ))}
           </ul>
+          <div className=" border-l-4 border-orange-500 text-orange-800 p-4 mb-6 rounded">
+            <strong>Atenção:</strong> {dados.tratamento_Chikungunya.atencao_subaguda}
+          </div>
         </div>
       </div>
     </section>
