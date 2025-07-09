@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🦠 UI - Profilaxia de Zoonoses
 
-## Getting Started
+Interface moderna para consulta de medidas profiláticas e condutas frente a exposições a doenças como **Raiva**, **Leptospirose** e **Chikungunya**, baseada na API desenvolvida no Mini Projeto do Módulo 4 - Programadores do Amanhã.
 
-First, run the development server:
+## 🔗 API
+
+Este front-end consome os dados da API disponível em:
+
+https://m5-mp-3o8n-o0ap9xht0-namartinxs-projects.vercel.app/
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- [Next.js]
+- [React]
+- [TypeScript]
+- [TailwindCSS]
+- [Vercel]
+- [Render]
+---
+
+## 🗂️ Estrutura do Projeto
+
+📦 src/
+┣ 📂 app/
+┃ ┣ 📜 globals.css
+┃ ┣ 📜 layout.tsx
+┃ ┣ 📜 page.tsx
+┣ 📂 components/
+┃ ┣ 📜 aviso.tsx
+┃ ┣ 📜 footer.tsx
+┃ ┣ 📜 header.tsx
+┃ ┣ 📜 leptoSection.tsx
+┃ ┣ 📜 tratChickSection.tsx
+┃ ┣ 📜 zoonoses.tsx
+┃ ┣ 📜 zoonosesChikungunya.tsx
+┃ ┣ 📜 zoonosesLeptospirose.tsx
+┃ ┣ 📜 zoonosesRaiva.tsx
+┣ 📂 utils/
+┃ ┗ 📜 api.ts
+
+
+---
+
+## 📌 Funcionalidades
+
+
+### ✅ Leptospirose
+- Retorna **medidas de prevenção ambientais e pessoais**.
+
+### ✅ Chikungunya
+- Retorna o **tratamento recomendado** de acordo com a fase da doença (aguda ou crônica).
+
+### ✅ Zoonoses
+- Retorna dados informativos sobre zoonoses cadastradas.
+
+---
+
+## 📄 Documentação:
+Acesse a documentação no navegador!
+A documentação completa das rotas, parâmetros e exemplos de resposta está disponível no Swagger 
+http://localhost:3000/api-docs
+
+---
+
+## 📨 Rotas disponíveis
+
+### 🔹 Raiva
+GET /profilaxiaraiva/avaliarAcidenteRaiva?animal=cao_gato&tipo_exposicao=direto&observacao=passivel_de_observacao
+
+### 🔹 Leptospirose
+GET /prevencaoLeptospirose
+
+
+### 🔹 Chikungunya
+GET /tratamentoChikungunya
+
+
+### 🔹 Zoonoses
+GET /zoonoses/:nome
+
+---
+
+## 🧪 Como rodar o projeto localmente
 
 ```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/ui-profilaxia.git
+
+# Acesse o diretório
+cd ui-profilaxia
+
+# Instale as dependências
+npm install
+
+# Rode o projeto
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Acesse no navegador
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
